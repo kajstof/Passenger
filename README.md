@@ -15,4 +15,9 @@ dotnet new sln
 
 # Add projects to solution
 dotnet sln add Passenger.Api Passenger.Core Passenger.Infrastructure Passenger.Tests Passenger.Tests.EndToEnd
+
+# Add references
+dotnet add Passenger.Infrastructure reference Passenger.Core
+dotnet add Passenger.Api reference Passenger.Infrastructure
+dotnet add Passenger.Test reference Passenger.Core Passenger.Infrastructure
 ```
