@@ -19,9 +19,16 @@ dotnet sln add Passenger.Api Passenger.Core Passenger.Infrastructure Passenger.T
 # Add references
 dotnet add Passenger.Infrastructure reference Passenger.Core
 dotnet add Passenger.Api reference Passenger.Infrastructure
-dotnet add Passenger.Test reference Passenger.Core Passenger.Infrastructure
+dotnet add Passenger.Tests reference Passenger.Core Passenger.Infrastructure
 
 # Add NuGet packages
 dotnet add Passenger.Tests package FluentAssertions     # --version 5.4.2
 dotnet add Passenger.Tests package Moq                  # --version 4.10.0
+
+# Build, test, etc.
+dotnet clean
+dotnet restore
+dotnet build
+dotnet test Passenger.Tests
+dotnet run --project Passenger.Api
 ```
