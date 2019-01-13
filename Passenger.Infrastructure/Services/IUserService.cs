@@ -1,7 +1,10 @@
+using Passenger.Infrastructure.DTO;
+
 namespace Passenger.Infrastructure.Services
 {
     public interface IUserService
     {
-        void Register(string email, string password);
+        UserDto Get(string email);
+        void Register(string email, string userName, string password);
     }
 }
