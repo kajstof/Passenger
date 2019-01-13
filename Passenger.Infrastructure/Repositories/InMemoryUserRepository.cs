@@ -8,7 +8,12 @@ namespace Passenger.Infrastructure.Repositories
 {
     public class InMemoryUserRepository : IUserRepository
     {
-        private static ISet<User> _users = new HashSet<User>();
+        private static ISet<User> _users = new HashSet<User>()
+        {
+            new User("user1@user.com", "User1", "secret", "salt"),
+            new User("user2@user.com", "User2", "secret", "salt"),
+            new User("user3@user.com", "User3", "secret", "salt")
+        };
 
         public User Get(Guid id)
         {
