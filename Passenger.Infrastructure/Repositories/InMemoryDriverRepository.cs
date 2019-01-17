@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Passenger.Core.Domain;
-using Passenger.Core.Repository;
+using Passenger.Core.Repositories;
 
 namespace Passenger.Infrastructure.Repositories
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Passenger.Core.Repository;
+using Passenger.Core.Repositories;
 using Passenger.Infrastructure.DTO;
 using Passenger.Infrastructure.Services;
 

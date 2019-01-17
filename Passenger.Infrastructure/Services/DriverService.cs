@@ -1,5 +1,5 @@
 using System;
-using Passenger.Core.Repository;
+using Passenger.Core.Repositories;
 using Passenger.Infrastructure.DTO;
 
 namespace Passenger.Infrastructure.Services
