@@ -12,6 +12,7 @@ namespace Passenger.Infrastructure.Mappers
             {
                 cfg.CreateMap<User, UserDto>();
                 cfg.CreateMap<Driver, DriverDto>();
+                // .ForMember(x => x.MyVehicle, m => m.MapFrom(p => p.Vehicle))
             }).CreateMapper();
         }
     }
