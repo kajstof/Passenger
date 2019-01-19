@@ -26,8 +26,11 @@ namespace Passenger.Infrastructure.Repositories
             return await Task.FromResult(_users.SingleOrDefault(x => x.Email.Equals(email.ToLowerInvariant())));
         }
 
-        public async Task<IEnumerable<User>> GetAllAsync() => _users;
-        
+        public async Task<IEnumerable<User>> GetAllAsync()
+        {
+            return await Task.FromResult(_users);
+        }
+
         public async Task AddAsync(User user)
         {
             _users.Add(user);
