@@ -18,6 +18,7 @@ namespace Passenger.Core.Domain
         {
             UserId = userId;
 //            Vehicle = Vehicle.Create("Ford", "Mustang", 10);
+//            Vehicle = Vehicle.CreateFord("Mustang", 10);
         }
     }
 }

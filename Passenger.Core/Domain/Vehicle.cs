@@ -8,7 +8,7 @@ namespace Passenger.Core.Domain
         public string Name { get; protected set; }
         public int Seats { get; protected set; }
 
-        public Vehicle()
+        protected Vehicle()
         {
         }
 
