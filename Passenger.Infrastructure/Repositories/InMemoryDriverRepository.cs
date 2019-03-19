@@ -27,7 +27,6 @@ namespace Passenger.Infrastructure.Repositories
             return await Task.FromResult(_drivers);
         }
 
-
         public async Task UpdateAsync(Driver driver)
         {
             await Task.CompletedTask;

@@ -17,12 +17,12 @@ namespace Passenger.Core.Domain
 
         protected Node(string address, double longitude, double latitude)
         {
-            SetAdress(address);
+            SetAddress(address);
             SetLongitude(longitude);
             SetLatitude(latitude);
         }
 
-        public void SetAdress(string address)
+        public void SetAddress(string address)
         {
             if (!NameRegex.IsMatch(address))
             {
