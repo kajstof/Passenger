@@ -17,8 +17,8 @@ namespace Passenger.Core.Domain
         public Driver(Guid userId)
         {
             UserId = userId;
-//            Vehicle = Vehicle.Create("Ford", "Mustang", 10);
-//            Vehicle = Vehicle.CreateFord("Mustang", 10);
+            // Vehicle = Vehicle.Create("Ford", "Mustang", 10);
+            // Vehicle = Vehicle.CreateFord("Mustang", 10);
         }
     }
 }

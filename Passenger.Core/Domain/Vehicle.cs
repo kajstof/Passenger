@@ -20,8 +20,8 @@ namespace Passenger.Core.Domain
         }
 
         public static Vehicle Create(string brand, string name, int seats) => new Vehicle(brand, name, seats);
-//        public static Vehicle CreateFord(string name, int seats) => new Vehicle("Ford", name, seats);
-//        public static Vehicle CreateMazda(string name, int seats) => new Vehicle("Mazda", name, seats);
+        // public static Vehicle CreateFord(string name, int seats) => new Vehicle("Ford", name, seats);
+        // public static Vehicle CreateMazda(string name, int seats) => new Vehicle("Mazda", name, seats);
 
         private void SetBrand(string brand)
         {

@@ -33,7 +33,7 @@ namespace Passenger.Api.Controllers
         {
             var user = _userService.RegisterAsync(request.Email, request.Username, request.Password);
 
-            return Created($"users/{request.Email}", null);
+            return await Task.Run(() => Created($"users/{request.Email}", null));
         }
     }
 }
