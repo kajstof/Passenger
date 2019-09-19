@@ -1,0 +1,20 @@
+GET https://localhost:5001/api/values HTTP/1.1
+
+###
+
+GET https://localhost:5001/users/user1@user.com HTTP/1.1
+
+###
+
+GET https://localhost:5001/users/userx@user.com HTTP/1.1
+
+###
+
+POST https://localhost:5001/users HTTP/1.1
+Content-Type:  application/json
+
+{
+    "Email": "abc@abc.abc",
+    "Password": "12345",
+    "Username": "abc"
+}
