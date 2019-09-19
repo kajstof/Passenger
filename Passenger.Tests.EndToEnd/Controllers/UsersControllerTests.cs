@@ -62,7 +62,7 @@ namespace Passenger.Tests.EndToEnd.Controllers
         private async Task<UserDto> GetUserAsync(string email)
         {
             var response = await _client.GetAsync($"users/{email}");
-//            response.EnsureSuccessStatusCode();
+            // response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<UserDto>(responseString);
         }
