@@ -13,7 +13,7 @@ namespace Passenger.Infrastructure.Commands
             this._componentContext = _componentContext;
         }
 
-        public Task DispatchAsync<T>(T command) where T : ICommand
+        public async Task DispatchAsync<T>(T command) where T : ICommand
         {
             if (command == null)
             {

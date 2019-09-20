@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Passenger.Core.Repositories;
+using Passenger.Infrastructure.IoC.Modules;
 using Passenger.Infrastructure.Mappers;
 using Passenger.Infrastructure.Repositories;
 using Passenger.Infrastructure.Services;
@@ -22,7 +23,7 @@ namespace Passenger.Api
     public class Startup
     {
         public IConfiguration Configuration { get; }
-        public IContainer Container { get; private set; }
+        public IContainer ApplicationContainer { get; private set; }
 
         public Startup(IConfiguration configuration)
         {
@@ -39,9 +40,10 @@ namespace Passenger.Api
 
             var builder = new ContainerBuilder();
             builder.Populate(services);
-            Container = builder.Build();
+            builder.RegisterModule<CommandModule>();
+            ApplicationContainer = builder.Build();
 
-            return new AutofacServiceProvider(Container);
+            return new AutofacServiceProvider(ApplicationContainer);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +60,7 @@ namespace Passenger.Api
 
             app.UseHttpsRedirection();
             app.UseMvc();
-            applicationLifetime.ApplicationStopped.Register(() => Container.Dispose());
+            applicationLifetime.ApplicationStopped.Register(() => ApplicationContainer.Dispose());
         }
     }
 }
