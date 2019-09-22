@@ -11,9 +11,9 @@ namespace Passenger.Infrastructure.Repositories
     {
         private static ISet<User> _users = new HashSet<User>()
         {
-            new User("user1@user.com", "User1", "secret", "salt"),
-            new User("user2@user.com", "User2", "secret", "salt"),
-            new User("user3@user.com", "User3", "secret", "salt")
+            new User("user1@user.com", "User1", "secret", "salt", "user"),
+            new User("user2@user.com", "User2", "secret", "salt", "user"),
+            new User("user3@user.com", "User3", "secret", "salt", "user")
         };
 
         public async Task<User> GetAsync(Guid id)

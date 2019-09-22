@@ -6,6 +6,6 @@ namespace Passenger.Infrastructure.Services
     public interface IUserService
     {
         Task<UserDto> GetAsync(string email);
-        Task RegisterAsync(string email, string userName, string password);
+        Task RegisterAsync(string email, string userName, string password, string role);
     }
 }
