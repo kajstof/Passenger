@@ -3,6 +3,7 @@ using Passenger.Infrastructure.Commands;
 
 namespace Passenger.Api.Controllers
 {
+    [ApiController]
     [Route("[controller]")]
     public abstract class ApiControllerBase : ControllerBase
     {

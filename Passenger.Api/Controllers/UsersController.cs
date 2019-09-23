@@ -7,8 +7,6 @@ using Passenger.Infrastructure.Settings;
 
 namespace Passenger.Api.Controllers
 {
-    [Route("[controller]")]
-    [ApiController]
     public class UsersController : ApiControllerBase
     {
         private readonly IUserService _userService;

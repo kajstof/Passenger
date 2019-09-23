@@ -15,6 +15,7 @@ namespace Passenger.Infrastructure.Handlers.Drivers
         }
         public async Task HandleAsync(CreateDriver command)
         {
+            await Task.CompletedTask;
         }
     }
 }
