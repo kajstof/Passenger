@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,12 +14,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Passenger.Core.Repositories;
 using Passenger.Infrastructure.IoC;
 using Passenger.Infrastructure.IoC.Modules;
 using Passenger.Infrastructure.Mappers;
 using Passenger.Infrastructure.Repositories;
 using Passenger.Infrastructure.Services;
+using Passenger.Infrastructure.Settings;
 
 namespace Passenger.Api
 {
@@ -35,7 +39,6 @@ namespace Passenger.Api
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
             var builder = new ContainerBuilder();
             builder.Populate(services);
             builder.RegisterModule(new ContainerModule(Configuration));
@@ -57,6 +60,18 @@ namespace Passenger.Api
             }
 
             app.UseHttpsRedirection();
+
+            var jwtSettings = app.ApplicationServices.GetService<JwtSettings>();
+            
+            app.UseJwtBearerAuthentication(new JwtBearerOptions()
+            {
+                TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidIssuer = jwtSettings.Issuer,
+                    ValidateAudience = false,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.Key))
+                }
+            });
             app.UseMvc();
             applicationLifetime.ApplicationStopped.Register(() => ApplicationContainer.Dispose());
         }
