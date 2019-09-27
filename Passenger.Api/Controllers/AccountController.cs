@@ -17,7 +17,7 @@ namespace Passenger.Api.Controllers
 
         [HttpGet]
         [Route("token")]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             var token = _jwtHandler.CreateToken("user1@user.com", "user");
 
